@@ -39,6 +39,7 @@ public class main {
 		
 		
 		BFSTree bs = new BFSTree(graph , 2); 
+		System.out.println("OutPut test2, source = 2"); 
 		
 		System.out.println("to 0 " +bs.getDistanceTo(0)) ;
 		System.out.println("to 1 " +bs.getDistanceTo(1)) ;
@@ -67,6 +68,8 @@ public class main {
 		graph2.addEdge(2, 3);
 		
 		BFSTree bs2 = new BFSTree(graph2 , 0) ;
+		System.out.println("OutPut test3, source = 0"); 
+		
 		System.out.println("to 0 " +bs2.getDistanceTo(0)) ;
 		System.out.println("to 1 " +bs2.getDistanceTo(1)) ;
 		System.out.println("to 2 " +bs2.getDistanceTo(2)) ; 
