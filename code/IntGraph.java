@@ -24,6 +24,10 @@ public abstract class IntGraph {
      * @throws IllegalArgumentException if this vertex value has
      *                                  been added before
      */
+	public IntGraph() {
+		
+	}
+	
     public abstract void addVertex(int value);
 
     /**

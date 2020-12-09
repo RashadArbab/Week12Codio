@@ -10,14 +10,14 @@ public class BFSTree {
     
     // TODO: implement getDistanceTo method
 	
-    private IntGraph graph; 
+    private IntGraphList graph; 
     private int source ; 
-    private HashMap<Integer , Integer> distances; 
-    private HashMap<Integer, Integer> parents ; 
+    private HashMap<Integer , Integer> distances = new HashMap<Integer , Integer>() ; 
+    private HashMap<Integer, Integer> parents = new HashMap<Integer , Integer>() ;  
     
-    public BFSTree(IntGraph graph, int source){
-        this.graph = graph ;
+    public BFSTree(IntGraphList graph, int source){
         this.source = source; 
+        this.graph = graph; 
         
         initialize(); 
     }
@@ -42,13 +42,21 @@ public class BFSTree {
         	int u = q.remove(); 
         	for(int v : graph.getAdjacencyList(u)) {
         		if(distances.get(v) == -1) {
-        			distances.replace(v , distances.get(u) +1) ; 
-        			parents.replace(v, u); 
+        			distances.put(v , distances.get(u) +1) ; 
+        			parents.put(v, u); 
         			q.add(v); 
         		}
+        		
+        		
         	}
         	
         }
+        
+    }
+    
+    public int getDistanceTo(int end) {
+    	return distances.get(end); 
+    	
     }
     
     

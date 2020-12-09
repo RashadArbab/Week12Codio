@@ -18,7 +18,7 @@ public class IntGraphList extends IntGraph {
     /**
      * A map of adjacency lists for each vertex.
      */
-    private Map<Integer, LinkedList<Integer>> adjacencyList;
+    public Map<Integer, LinkedList<Integer>> adjacencyList;
 
     /**
      * Creates a new empty graph.
