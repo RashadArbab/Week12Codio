@@ -1,9 +1,11 @@
+import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.lang.IllegalArgumentExeption ; 
 
 /**
  * This class represents a graph stored using adjacency
@@ -28,20 +30,23 @@ public class IntGraphList extends IntGraph {
     }
     
     public int getDegree(int vertex) throws IllegalArgumentException{
-        if (adjecencyList.containsKey(vertex)){
-            LinkedList<Integer> vert = adjecencyList.get(vertex) ; 
-            int counter = 0; 
-            LinkedList<Integer> current = vert; 
-            while (vert.next != null){
-                counter ++ ; 
-                current = current.next ; 
-            }
-            return counter ; 
+        if (adjacencyList.containsKey(vertex)){
+            LinkedList<Integer> vert = adjacencyList.get(vertex) ; 
+            return vert.size();        
         }
         else {
-           // throw new illegalArgumentException("does not contain the vertex") ; 
-            return 0; 
+           throw new IllegalArgumentException("does not contain the vertex") ; 
+        
         }
+    }
+    
+    public int getNumEdges(){
+    	Collection <LinkedList<Integer>> values = adjacencyList.values(); 
+    	int edges = 0; 
+    	for (LinkedList<Integer> value : values) {
+    		edges += value.size(); 
+    	}
+    	return edges/2; 
     }
 
     /**
